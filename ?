@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			function alertForm() {
+				var style = document.forms["myForm"]["iradio"].value;
+				var range = document.forms["myForm"]["irange"].value;
+				var color = document.forms["myForm"]["icolor"].value;
+				var msg;
+				if (style == "") { msg = "You like no music style\n"; }
+				else {
+					if (style == "other") { style = "music, (no rock or pop)"; }
+					msg = "You like "+style+" "+range+" out of 10\n";
+				}
+				alert(msg+"... and the code of your color is"+" "+color);
+			}
+		</script>
+		<style>
+			body { background-color: #FFD9A8; }
+			form { background-color: #FCF9DB;
+            	border: 2px solid #A32B2E; }
+		</style>
+	</head>
+
+	<body>
+		<h1>Non Textual Input Types</h1>
+		<form name="myForm" onsubmit="return alertForm()" method="post")>
+  			<!-- The radio type -->
+  			<label for="iradio">Music Style:</label><br>
+  			<input type="radio" id="ROCK" name="iradio" value="rock">
+  			<label for="ROCK">Rock</label><br>
+        <input type="radio" id="COUNTRY" name="iradio" value="country">
+  			<label for="COUNTRY">Country</label><br>
+  			<input type="radio" id="POP" name="iradio" value="pop">
+  			<label for="POP">Pop</label><br>
+  			<input type="radio" id="OTHER" name="iradio" value="other">
+  			<label for="OTHER">Other</label><br><br>
+  		
+        	<!-- The range type -->
+  			<label for="irange">How much you like it (0 to 10):</label><br>
+  			<input type="range" id="IRANGE" name="irange" min="0" max="10"><br><br>
+  		
+        	<!-- The color type -->
+  			<label for="icolor">Select a color for your song:</label>
+  			<input type="color" id="icolor" name="icolor"><br><br>
+  		
+      <!-- The Reset Button -->
+			<input type="reset" value="Reset">
+      ----------
+        	<!-- The Submit Button -->
+  			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>
